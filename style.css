@@ -1,5 +1,4 @@
 /* =========================================================
-   TOKENS
    Dark, glowing developer-portfolio theme: deep navy background,
    electric blue glow accent, soft-bordered cards.
 ========================================================= */
@@ -35,6 +34,7 @@ body {
   color: var(--text);
   background: var(--bg);
   line-height: 1.6;
+  animation: startup 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 h1, h2, h3 { font-family: var(--font-display); margin: 0; }
@@ -42,6 +42,38 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
 p { margin: 0 0 1em; color: var(--text-soft); max-width: 62ch; }
 
 a { color: inherit; }
+
+
+@keyframes startup {
+  0% { transform: scale(0.96) translateY(10px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.site-header,
+.hero-copy > *,
+.hero-visual > *,
+.section-head,
+.project-card {
+  animation: startup 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.site-header { animation-delay: 0.05s; }
+
+.hero-copy > *:nth-child(1) { animation-delay: 0.12s; }
+.hero-copy > *:nth-child(2) { animation-delay: 0.18s; }
+.hero-copy > *:nth-child(3) { animation-delay: 0.24s; }
+.hero-copy > *:nth-child(4) { animation-delay: 0.3s; }
+
+.hero-visual > *:nth-child(1) { animation-delay: 0.2s; }
+.hero-visual > *:nth-child(2) { animation-delay: 0.28s; }
+
+.section-head { animation-delay: 0.34s; }
+
+.project-card:nth-child(1) { animation-delay: 0.38s; }
+.project-card:nth-child(2) { animation-delay: 0.46s; }
+.project-card:nth-child(3) { animation-delay: 0.54s; }
+.project-card:nth-child(4) { animation-delay: 0.62s; }
+.project-card:nth-child(5) { animation-delay: 0.7s; }
 
 .wrap {
   max-width: var(--max);
@@ -445,5 +477,13 @@ button:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .project-card { transition: none; }
+  body,
+  .site-header,
+  .hero-copy > *,
+  .hero-visual > *,
+  .section-head,
+  .project-card {
+    animation: none;
+    transition: none;
+  }
 }
